@@ -1,4 +1,5 @@
 import { createBrowserRouter, Outlet  } from "react-router-dom";
+import NoteList from "../components/NoteList";
 import AuthProvider from "../context/AuthProvider";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
@@ -23,7 +24,13 @@ export default createBrowserRouter([
              
                         {
                             element: <Home/>,
-                            path: '/'
+                            path: '/',
+                            children:[
+                                {
+                                    element:<NoteList/>,
+                                    path:`folders/:folderId`
+                                }
+                            ]
                         }
                    
                 ]

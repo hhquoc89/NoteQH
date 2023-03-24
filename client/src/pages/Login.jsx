@@ -4,6 +4,7 @@ import { GoogleAuthProvider,signInWithPopup,getAuth } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../context/AuthProvider'
+import AnimatedText from '../ani/Animation'
 export default function Login() {
   const auth = getAuth();
   const {user} = useContext(AuthContext);
@@ -17,6 +18,7 @@ export default function Login() {
     
   
   };
+ 
   if (user?.uid){
     navigate('/');
     return;
@@ -25,8 +27,9 @@ export default function Login() {
 
   return (
     <>
-    <Typography variant='h5' sx={{marginBottom : '50px'}}>Welcome to NoteQH</Typography>
-    <Button variant='contained' color='success' onClick={handleLoginWithGoogle}>Login</Button>
+    <Typography variant='h5' sx={{marginBottom : '50px'}}>Chào mừng đến với NoteQH</Typography>
+    <AnimatedText>Click ngay</AnimatedText>
+    <Button variant='contained' color='success' onClick={handleLoginWithGoogle}>Đăng nhập</Button>
     </>
     )
 }

@@ -10,6 +10,7 @@ function AuthProvider({children}) {
 
     useEffect(()=>{
         const unSubcribed = auth.onIdTokenChanged((user)=>{
+        console.log('[From AuthProvider]', { user });
         if (user?.uid)
             {
                 setUser(user);
